@@ -25,6 +25,6 @@ public class Task {
     @Column(name = "deadline")
     private Date deadline;
 
-    @Column(name = "isDone")
+    @Column(name = "is_done")
     private boolean isDone;
 }

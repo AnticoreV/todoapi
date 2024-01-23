@@ -1,19 +1,24 @@
 package com.todoapi.controller;
 
 import com.todoapi.data.dto.TaskDto;
+import com.todoapi.service.TaskService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
+@AllArgsConstructor
 public class TaskController {
+    private final TaskService taskService;
 
     @GetMapping("/tasks")
     public ResponseEntity<List<TaskDto>> listTasks(@RequestParam(value = "isDone", required = false) boolean isDone){
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(taskService.listTasks(Optional.ofNullable(isDone)), HttpStatus.OK);
     }
 
     @PostMapping("/tasks")
