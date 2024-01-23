@@ -1,6 +1,9 @@
+/*
+ * Main properties which transferred between services and shown to client
+ */
+
 package com.todoapi.data.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 
 import java.io.Serializable;

@@ -1,3 +1,7 @@
+/*
+ * Main REST Controller to communicate with API and manage tasks
+ */
+
 package com.todoapi.controller;
 
 import com.todoapi.data.dto.TaskDto;

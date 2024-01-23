@@ -1,3 +1,7 @@
+/*
+ * Mapping interface to map from entity to DTO and vice versa
+ */
+
 package com.todoapi.data.mapper;
 
 import com.todoapi.data.dto.TaskDto;

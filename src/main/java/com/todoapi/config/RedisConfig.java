@@ -1,3 +1,10 @@
+/*
+ * Redis cache configuration to connect to remote redis instance (not in memory).
+ * App implementation: when we call endpoint to get all tasks it caches the result,
+ * if client call update/create or delete operation the cache is evicted to show
+ * actual data and then renew the cache result.
+ */
+
 package com.todoapi.config;
 
 import org.springframework.cache.annotation.EnableCaching;

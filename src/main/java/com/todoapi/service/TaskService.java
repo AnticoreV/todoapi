@@ -1,3 +1,7 @@
+/*
+ * Service layer interface to declare main methods for work with tasks
+ */
+
 package com.todoapi.service;
 
 import com.todoapi.data.dto.TaskDto;
