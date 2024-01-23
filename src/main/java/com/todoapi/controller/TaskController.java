@@ -17,17 +17,19 @@ public class TaskController {
     private final TaskService taskService;
 
     @GetMapping("/tasks")
-    public ResponseEntity<List<TaskDto>> listTasks(@RequestParam(value = "isDone", required = false) boolean isDone){
+    public ResponseEntity<List<TaskDto>> listTasks(@RequestParam(value = "isDone", required = false) Boolean isDone){
         return new ResponseEntity<>(taskService.listTasks(Optional.ofNullable(isDone)), HttpStatus.OK);
     }
 
     @PostMapping("/tasks")
     public ResponseEntity<TaskDto> addTask(@RequestBody TaskDto taskDto){
+        taskService.addTask(taskDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PatchMapping("/tasks/{id}")
     public ResponseEntity<TaskDto> changeStatusTask(@PathVariable Long id, @RequestParam boolean isDone){
+        taskService.updateStatusTask(id, isDone);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
