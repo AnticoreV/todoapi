@@ -40,7 +40,7 @@ public class TaskServiceImpl implements TaskService{
     @Override
     @Transactional
     public void deleteTask(Long id) {
-
+        taskRepository.deleteById(id);
     }
 
     private List<TaskDto> getTasks() {
