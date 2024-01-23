@@ -1,6 +1,6 @@
 package com.todoapi.controller;
 
-import com.todoapi.model.dto.TaskDto;
+import com.todoapi.data.dto.TaskDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

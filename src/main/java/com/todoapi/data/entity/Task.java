@@ -1,4 +1,4 @@
-package com.todoapi.model.entity;
+package com.todoapi.data.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
