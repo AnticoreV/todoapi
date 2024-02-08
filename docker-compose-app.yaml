@@ -1,0 +1,42 @@
+version: '3.8'
+networks:
+  net:
+    external: true
+    name: net
+
+services:
+  todoapi:
+    build:
+      context: .
+    container_name: todoapi
+    environment:
+      POSTGRES_HOST: postgres
+      REDIS_HOST: redis
+      EUREKA_HOST: service-registry
+    ports:
+      - "8080:8080"
+    networks:
+      - net
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+    networks:
+      - net
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  redis:
+    image: redis:latest
+    container_name: redis-container
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass pass
+    networks:
+      - net
